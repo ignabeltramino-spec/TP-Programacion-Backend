@@ -12,11 +12,12 @@ namespace Tp_ProgramacionIII.DTOs
         [Required(ErrorMessage = "Este campo es obligatorio")]
         public string Action { get; set; }
 
-        public int ClientId { get; set; }
-        [Range(0.00000001, double.MaxValue, ErrorMessage = "El valor no puede ser menor a 0" )]
+        [Range(0.00000001, double.MaxValue, ErrorMessage = "El valor no puede ser menor a 0")]
         public decimal CryptoAmount { get; set; }
         public decimal Money { get; set; }
         [Required(ErrorMessage = "Este campo es obligatorio")]
         public DateTime DateTime { get; set; }
+        public int ClientId { get; set; }
+
     }
 }

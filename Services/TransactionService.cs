@@ -14,7 +14,7 @@ namespace Tp_ProgramacionIII.Services
         {
             _context = context;
             _httpClient = httpClient;
-        }
+        }                       
 
         public async Task<List<TransactionDTO>> Get()
         {
@@ -29,6 +29,7 @@ namespace Tp_ProgramacionIII.Services
                 CryptoAmount = t.CryptoAmount,
                 Money = t.Money,
                 DateTime = t.DateTime,
+                ClientId = t.ClientId,
             }).ToList();
             return transactionDTO;
 
@@ -90,6 +91,7 @@ namespace Tp_ProgramacionIII.Services
                 CryptoAmount = transactionDTO.CryptoAmount,
                 Money = totalGastado,
                 DateTime = transactionDTO.DateTime,
+                ClientId = transactionDTO.ClientId,
             };
 
             _context.Transacciones.Add(nuevaTransaccion);

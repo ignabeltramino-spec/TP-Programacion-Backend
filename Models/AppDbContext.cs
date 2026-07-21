@@ -9,5 +9,6 @@ namespace Tp_ProgramacionIII.Models
         }
 
         public DbSet<Transaction> Transacciones {  get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
     }
 }

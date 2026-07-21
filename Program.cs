@@ -18,7 +18,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("PermitirVue", app =>
     {
-        app.WithOrigins("http://localhost:5173/")
+        app.WithOrigins("http://localhost:5173", "http://localhost:5174")
            .AllowAnyOrigin()
            .AllowAnyHeader()
            .AllowAnyMethod();

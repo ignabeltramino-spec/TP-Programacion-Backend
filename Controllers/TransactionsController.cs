@@ -40,10 +40,16 @@ namespace Tp_ProgramacionIII.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            var nuevaTransaccion = await _TransactionService.AddTransaction(transactionsDTO);
-
-            return Ok(nuevaTransaccion);
+            try
+            {
+                var nuevaTransaccion = await _TransactionService.AddTransaction(transactionsDTO);
+                return CreatedAtAction(nameof(Gett), new { id = nuevaTransaccion.Id }, nuevaTransaccion);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new {message = ex.Message});
+            }
+          
         }
 
         [HttpPut("{id}")]
